@@ -1,0 +1,24 @@
+'use strict';
+
+const globby = require('globby');
+const path = require('path');
+
+function detectRepoTestFiles(dir, options) {
+    options = Object.assign({
+        cwd: dir,
+        ignore: 'node_modules/**',  // Ignore node_modules
+        nodir: true,                // Only return files
+        nocase: true,               // Case insensitive
+        silent: true,               // Do not print warnings
+        strict: false,              // Do not crash on the first error
+    }, options);
+
+    return globby([
+        '**/{test,spec}?(s)/**/*',            // Conventional test dirs (including deep)
+        '{test,spec}?(s).*',                  // Conventional root test files
+        '**/_?(_){test,spec}?(s)?(_)_/**/*',  // React/Jest style test files
+    ], options)
+    .then((files) => files.map((file) => path.join(dir, file)));
+}
+
+module.exports = detectRepoTestFiles;
