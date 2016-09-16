@@ -33,7 +33,7 @@ const detectRepoTestFiles = require('detect-repo-test-files');
 
 detectRepoTestFiles('./some-repository-directory')
 .then((files) => {
-    console.log(`detected ${files.length} file(s):`);
+    console.log(`detected ${files.length} test file(s)`);
     console.log(files);
 });
 ```
