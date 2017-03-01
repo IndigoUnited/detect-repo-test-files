@@ -38,9 +38,17 @@ it('should detect a variety of test files', () => {
         `${tmpDir}/lib/controllers/specs/foo/foo.js`,
         // Root test & spec file
         `${tmpDir}/test.js`,
+        `${tmpDir}/foo-test.js`,
+        `${tmpDir}/foo.test.js`,
         `${tmpDir}/tests.js`,
+        `${tmpDir}/foo-tests.js`,
+        `${tmpDir}/foo.tests.js`,
         `${tmpDir}/spec.js`,
+        `${tmpDir}/foo-spec.js`,
+        `${tmpDir}/foo.spec.js`,
         `${tmpDir}/specs.js`,
+        `${tmpDir}/foo-specs.js`,
+        `${tmpDir}/foo.specs.js`,
         // React/Jest convention
         `${tmpDir}/component/foo/__tests__/foo.js`,
         `${tmpDir}/component/foo/__test__/foo.js`,
@@ -65,6 +73,9 @@ it('should detect a variety of test files', () => {
         `${tmpDir}/component/foo/__test/foo.js`,
         `${tmpDir}/component/foo/test_/foo.js`,
         `${tmpDir}/component/foo/_test/foo.js`,
+        // Words ending in "test"
+        `${tmpDir}/component/foo/latest.js`,
+        `${tmpDir}/component/foo/fastest.js`,
     ];
 
     return Promise.all(testFiles.concat(nonTestFiles).map(touch))
