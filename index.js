@@ -15,7 +15,7 @@ function detectRepoTestFiles(dir, options) {
 
     return globby([
         '**/{test,spec}?(s)/**/*',            // Conventional test dirs (including deep)
-        '**/*[.,-]{test,spec}?(s).*',         // Suffix-style test files (foo-test.js, foo.test.js)
+        '**/*[.-]{test,spec}?(s).*',          // Suffix-style test files (foo-test.js, foo.test.js)
         '**/{test,spec}?(s).*',               // Conventional root test files
         '**/_?(_){test,spec}?(s)?(_)_/**/*',  // React/Jest style test files
     ], options)
