@@ -64,10 +64,10 @@ it('should detect a variety of test files', () => {
         `${tmpDir}/component/foo/_specs_/foo.js`,
         `${tmpDir}/__tests__/foo.js`,
         // Case insensitive
-        `${tmpDir}/TeSt/foo.jsx`,
-        `${tmpDir}/lib/controllers/TeSt/foo.jsx`,
+        `${tmpDir}/insensitive/TeSt/foo.jsx`,
+        `${tmpDir}/insensitive/lib/controllers/TeSt/foo.jsx`,
         `${tmpDir}/TeSt.jsx`,
-        `${tmpDir}/component/foo/__TeStS__/foo.jsx`,
+        `${tmpDir}/insensitive/component/foo/__TeStS__/foo.jsx`,
     ];
 
     const nonTestFiles = [
