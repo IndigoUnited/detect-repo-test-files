@@ -11,7 +11,7 @@
 [coveralls-image]:https://img.shields.io/coveralls/IndigoUnited/node-detect-repo-test-files/master.svg
 [david-dm-url]:https://david-dm.org/IndigoUnited/node-detect-repo-test-files
 [david-dm-image]:https://img.shields.io/david/IndigoUnited/node-detect-repo-test-files.svg
-[david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-detect-repo-test-files#info=devDependencies
+[david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-detect-repo-test-files?type=dev
 [david-dm-dev-image]:https://img.shields.io/david/dev/IndigoUnited/node-detect-repo-test-files.svg
 
 Scans a repository directory, searching for a test files.
