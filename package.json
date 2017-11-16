@@ -27,7 +27,7 @@
   "author": "IndigoUnited <hello@indigounited.com> (http://indigounited.com)",
   "license": "MIT",
   "dependencies": {
-    "globby": "^6.0.0"
+    "globby": "^7.0.0"
   },
   "devDependencies": {
     "@satazor/eslint-config": "^3.0.0",
