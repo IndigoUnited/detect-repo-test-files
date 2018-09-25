@@ -6,11 +6,9 @@ const path = require('path');
 function detectRepoTestFiles(dir, options) {
     options = Object.assign({
         cwd: dir,
-        ignore: 'node_modules/**',  // Ignore node_modules
-        nodir: true,                // Only return files
-        nocase: true,               // Case insensitive
-        silent: true,               // Do not print warnings
-        strict: false,              // Do not crash on the first error
+        ignore: ['node_modules/**'], // Ignore node_modules
+        onlyFiles: true,             // Only return files
+        nocase: true,                // Case insensitive
     }, options);
 
     return globby([
