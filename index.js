@@ -14,6 +14,8 @@ function detectRepoTestFiles(dir) {
         nocase: true,
         // Ignore symlinks to avoid loops
         followSymlinkedDirectories: false,
+        // Return absolute paths
+        absolute: true,
     };
 
     return globby([
@@ -25,8 +27,7 @@ function detectRepoTestFiles(dir) {
         '**/{test,spec}?(s).*',
         // React/Jest style test files
         '**/_?(_){test,spec}?(s)?(_)_/**/*',
-    ], globbyOptions)
-    .then((files) => files.map((file) => path.join(dir, file)));
+    ], globbyOptions);
 }
 
 module.exports = detectRepoTestFiles;
