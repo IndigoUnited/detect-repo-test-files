@@ -4,7 +4,7 @@
   "description": "Scans a repository directory, searching for a test files",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint '{*.js,test/**/*.js}' --ignore-pattern=test/coverage",
+    "lint": "eslint .",
     "test": "mocha",
     "test-cov": "istanbul cover --dir test/coverage _mocha -- && echo Coverage lies in test/coverage/lcov-report/index.html",
     "test-travis": "istanbul cover _mocha --report lcovonly -- && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
@@ -30,10 +30,10 @@
     "globby": "^8.0.1"
   },
   "devDependencies": {
-    "@satazor/eslint-config": "^3.0.0",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "coveralls": "^3.0.2",
-    "eslint": "^3.0.0",
+    "eslint": "^5.6.1",
+    "eslint-config-moxy": "^6.1.1",
     "istanbul": "^0.4.1",
     "mkdirp": "^0.5.1",
     "mocha": "^5.2.0",

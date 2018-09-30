@@ -3,20 +3,29 @@
 const globby = require('globby');
 const path = require('path');
 
-function detectRepoTestFiles(dir, options) {
-    options = Object.assign({
+function detectRepoTestFiles(dir) {
+    const globbyOptions = {
         cwd: dir,
-        ignore: ['node_modules/**'], // Ignore node_modules
-        onlyFiles: true,             // Only return files
-        nocase: true,                // Case insensitive
-    }, options);
+        // Ignore node_modules
+        ignore: ['node_modules/**'],
+        // Only return files
+        onlyFiles: true,
+        // Case insensitive
+        nocase: true,
+        // Ignore symlinks to avoid loops
+        followSymlinkedDirectories: false,
+    };
 
     return globby([
-        '**/{test,spec}?(s)/**/*',            // Conventional test dirs (including deep)
-        '**/*[._-]{test,spec}?(s).*',         // Suffix-style test files (foo-test.*, foo.test.*, foo_test.*)
-        '**/{test,spec}?(s).*',               // Conventional root test files
-        '**/_?(_){test,spec}?(s)?(_)_/**/*',  // React/Jest style test files
-    ], options)
+        // Conventional test dirs (including deep)
+        '**/{test,spec}?(s)/**/*',
+        // Suffix-style test files (foo-test.*, foo.test.*, foo_test.*)
+        '**/*[._-]{test,spec}?(s).*',
+        // Conventional root test files
+        '**/{test,spec}?(s).*',
+        // React/Jest style test files
+        '**/_?(_){test,spec}?(s)?(_)_/**/*',
+    ], globbyOptions)
     .then((files) => files.map((file) => path.join(dir, file)));
 }
 
